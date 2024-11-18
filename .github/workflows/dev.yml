@@ -1,4 +1,4 @@
-name: auto test when dev
+name: auto test when dev push
 on:
   push:
     branches:
