@@ -10,6 +10,9 @@ on:
 
 jobs:
   int_test:
+    if: |
+      (github.event_name == 'push') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/stage')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,6 +20,9 @@ jobs:
         run: echo "Running integration tests"
 
   unit_test:
+    if: |
+      (github.event_name == 'push') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/stage')
     runs-on: ubuntu-latest
     steps:
       - name: unit_test
