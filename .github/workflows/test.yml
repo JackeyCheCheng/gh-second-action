@@ -5,6 +5,8 @@ on:
       - '*'         # 匹配所有分支
       - '!stage'   # 排除 stage 分支
   workflow_dispatch:
+    branches:
+      - stage
     inputs:
       run_tests:
         description: 'Run tests'
