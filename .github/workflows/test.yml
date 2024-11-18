@@ -6,9 +6,6 @@ on:
 jobs:
   int_test:
     runs-on: ubuntu-latest
-    if: |
-      (github.event_name == 'push') ||
-      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/stage')
     steps:
       - uses: actions/checkout@v2
       - name: int_test
@@ -16,9 +13,6 @@ jobs:
 
   unit_test:
     runs-on: ubuntu-latest
-    if: |
-      (github.event_name == 'push') ||
-      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/stage')
     steps:
       - name: unit_test
         run: echo "Running unit tests"
