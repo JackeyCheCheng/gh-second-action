@@ -1,4 +1,4 @@
-name: manual test when stage
+name: manual test when merge stage
 on:
   workflow_dispatch:
     branches:
