@@ -1,8 +1,13 @@
-name: only run in stage develop03
+name: only run in stage develop
+
 on:
   push:
     branches-ignore:
       - stage
+  workflow_dispatch:
+    branches:
+      - stage
+
 jobs:
   int_test:
     runs-on: ubuntu-latest
