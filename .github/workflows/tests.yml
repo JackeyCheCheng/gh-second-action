@@ -15,3 +15,10 @@ jobs:
     steps:
       - name: unit_test
         run: echo "Running unit tests"
+
+  combine_report:
+    needs: [int_test, unit_test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: combine-report
+        run: echo "combine"
