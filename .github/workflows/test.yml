@@ -1,9 +1,9 @@
 name: only run in stage develop
+
 on:
   push:
-    branches:
-      - '*'         # 匹配所有分支
-      - '!stage'   # 排除 stage 分支
+    branches-ignore:
+      - stage
   workflow_dispatch:
     branches:
       - stage
@@ -18,19 +18,18 @@ jobs:
   int_test:
     runs-on: ubuntu-latest
     if: |
-      (github.event_name == 'push' && github.ref != 'refs/heads/stage') ||
+      (github.event_name == 'push') ||
       (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/stage')
     steps:
       - uses: actions/checkout@v2
-      
       - name: int_test
-        run: echo "Running tests"
+        run: echo "Running integration tests"
 
   unit_test:
     runs-on: ubuntu-latest
     if: |
-      (github.event_name == 'push' && github.ref != 'refs/heads/stage') ||
+      (github.event_name == 'push') ||
       (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/stage')
     steps:
       - name: unit_test
-        run: echo "Running tests"
+        run: echo "Running unit tests"
