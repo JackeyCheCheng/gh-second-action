@@ -1,0 +1,9 @@
+name: manual test when stage
+on:
+  workflow_dispatch:
+    branches:
+      - master
+
+jobs:
+  call_reusable_workflow:
+    uses: ./.github/workflows/tests.yml
