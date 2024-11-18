@@ -18,5 +18,7 @@ jobs:
 
   combine_report:
     needs: [int_test, unit_test]
+    runs-on: ubuntu-latest
+    steps:
       - name: combine-report
         run: echo "combine"
