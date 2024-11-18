@@ -14,6 +14,16 @@ on:
         type: boolean
 
 jobs:
+  check_stage_push:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Check if branch is stage and now is push
+        run: |
+          if [[ "${{ github.ref }}" != "refs/heads/stage" ]]; then
+            echo "This workflow can only be manually triggered on the stage branch."
+            exit 1
+          fi
   int_test:
     runs-on: ubuntu-latest
     if: |
