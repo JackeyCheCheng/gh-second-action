@@ -4,15 +4,6 @@ on:
   push:
     branches-ignore:
       - stage
-  workflow_dispatch:
-    branches:
-      - stage
-    inputs:
-      run_tests:
-        description: 'Run tests'
-        required: true
-        default: true
-        type: boolean
 
 jobs:
   int_test:
