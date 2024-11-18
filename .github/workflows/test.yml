@@ -1,10 +1,10 @@
-name: CI/CD Pipeline
+name: only run in stage develop
 
 on:
   push:
     branches:
       - '*'         # 匹配所有分支
-      - '!master'   # 排除 master 分支
+      - '!stage'   # 排除 stage 分支
   workflow_dispatch:
     inputs:
       run_tests:
@@ -14,24 +14,22 @@ on:
         type: boolean
 
 jobs:
-  build_and_test:
+  int_test:
     runs-on: ubuntu-latest
     if: |
-      (github.event_name == 'push' && github.ref != 'refs/heads/master') ||
-      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master')
+      (github.event_name == 'push' && github.ref != 'refs/heads/stage') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/stage')
     steps:
       - uses: actions/checkout@v2
       
-      - name: Build
-        run: echo "Building the project"
-      
-      - name: Run tests
+      - name: int_test
         run: echo "Running tests"
 
-  deploy:
-    needs: build_and_test
+  unit_test:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: |
+      (github.event_name == 'push' && github.ref != 'refs/heads/stage') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/stage')
     steps:
-      - name: Deploy
-        run: echo "Deploying the project"
+      - name: unit_test
+        run: echo "Running tests"
