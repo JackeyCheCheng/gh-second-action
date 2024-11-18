@@ -1,4 +1,4 @@
-name: dm tests
+name: Tests
 on:
   workflow_call:
 
