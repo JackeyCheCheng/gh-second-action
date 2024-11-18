@@ -1,0 +1,17 @@
+name: dm tests
+on:
+  workflow_call:
+
+jobs:
+  int_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: int_test
+        run: echo "Running integration tests"
+
+  unit_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: unit_test
+        run: echo "Running unit tests"
