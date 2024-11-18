@@ -1,0 +1,5 @@
+name: Output information
+on: workflow_dispatch
+jobs:
+  call_deployment_workflow:
+    uses: ./.github/workflows/deployment.yml
