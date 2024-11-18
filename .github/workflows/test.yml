@@ -1,9 +1,8 @@
-name: only run in stage develop
+name: only run in stage develop02
 on:
   push:
     branches-ignore:
       - stage
-
 jobs:
   int_test:
     runs-on: ubuntu-latest
