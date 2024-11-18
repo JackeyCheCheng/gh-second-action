@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: unit_test
         run: echo "Running unit tests"
-        
-  combine-report:
+
+  combine_report:
     needsneeds: [int_test, unit_test]
       - name: combine-report
         run: echo "combine"
