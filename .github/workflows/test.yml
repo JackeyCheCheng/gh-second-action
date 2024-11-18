@@ -26,9 +26,6 @@ jobs:
         run: echo "Building the project"
       
       - name: Run tests
-        if: |
-          (github.event_name == 'push') ||
-          (github.event_name == 'workflow_dispatch' && inputs.run_tests)
         run: echo "Running tests"
 
   deploy:
