@@ -1,0 +1,10 @@
+name: dev
+on:
+  push:
+    branches:
+      - '*'         # 匹配所有分支
+      - '!master'    # 排除 stage 分支
+
+jobs:
+  call_tests:
+    uses: ./.github/workflows/tests.yml
