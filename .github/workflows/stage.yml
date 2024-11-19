@@ -1,7 +1,18 @@
-name: hi
+name: manual test after merge stage
 
-on: workflow_dispatch
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to run tests on'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - stage
 
 jobs:
-  call:
-    uses: ./.github/workflows/tests.yml
+  call_shared:
+    if: github.ref == 'refs/heads/stage'
+    uses: ./.github/workflows/shared_tests.yml
