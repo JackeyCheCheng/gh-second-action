@@ -1,4 +1,4 @@
-name: Manual and Push Workflow00003
+name: Manual and Push Workflow00004
 
 on:
   push:
@@ -17,6 +17,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.branch == 'stage'
     steps:
       - uses: actions/checkout@v2
       
