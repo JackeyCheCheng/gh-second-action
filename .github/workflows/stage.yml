@@ -1,9 +1,17 @@
-name: manual test after merge stage
+name: Manual and Push Workflo0005
+
 on:
   workflow_dispatch:
-    branches:
-      - master
+    inputs:
+      branch:
+        description: 'Branch to run workflow on'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - stage
 
 jobs:
   call:
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.branch == 'stage'
     uses: ./.github/workflows/tests.yml
