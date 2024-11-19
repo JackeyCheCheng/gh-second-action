@@ -1,21 +1,21 @@
-name: Manual Test After Merge Stage02
+name: Manual and Push Workflow
 
 on:
   push:
     branches:
-      - stage  # 只在 stage 分支推送時觸發
-  workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to run tests on'
-        required: true
-        default: 'stage'
-        type: choice
-        options:
-          - stage
-          - main
-          - develop
+      - '*'  # 這會匹配所有分支
+  workflow_dispatch:  # 這會添加手動觸發按鈕
 
 jobs:
-  call:
-    uses: ./.github/workflows/tests.yml
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run a one-line script
+        run: echo Hello, this workflow was triggered by a ${{ github.event_name }} event.
+
+      - name: Run multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
