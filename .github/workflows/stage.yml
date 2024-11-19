@@ -1,9 +1,6 @@
 name: Manual and Push Workflo0005
 
 on:
-  push:
-    branches:
-      - '*'  # 這會匹配所有分支
   workflow_dispatch:
     inputs:
       branch:
