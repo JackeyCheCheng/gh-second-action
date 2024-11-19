@@ -1,6 +1,7 @@
 name: manual test after merge stage02
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       branch:
