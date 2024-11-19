@@ -13,5 +13,4 @@ on:
 
 jobs:
   call_shared:
-    if: (github.event_name == 'workflow_dispatch' && inputs.branch == 'stage')
     uses: ./.github/workflows/tests.yml
