@@ -1,8 +1,8 @@
-name: manual test after merge stage
+name: manual test after merge stage02
 on:
   workflow_dispatch:
     branches:
-      - master
+      - stage
 
 jobs:
   call:
