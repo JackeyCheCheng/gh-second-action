@@ -1,9 +1,16 @@
 name: manual test after merge stage02
 on:
   workflow_dispatch:
-    branches:
-      - stage
+    inputs:
+      branch:
+        description: 'Branch to run tests on'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - stage
 
 jobs:
   call:
+    if: github.ref == 'refs/heads/stage'
     uses: ./.github/workflows/tests.yml
