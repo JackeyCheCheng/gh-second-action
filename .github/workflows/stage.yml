@@ -2,7 +2,7 @@ name: manual test after merge stage
 on:
   workflow_dispatch:
     branches:
-      - master
+      - stage
 
 jobs:
   call:

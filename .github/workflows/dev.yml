@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - '*'         # 匹配所有分支
-      - '!master'    # 排除 stage 分支
+      - '!stage'    # 排除 stage 分支
 
 jobs:
   call:
