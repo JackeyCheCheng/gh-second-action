@@ -17,7 +17,5 @@ on:
           - develop
 
 jobs:
-  call_shared:
-    runs-on: ubuntu-latest
-      - name: Run shared workflow
-        uses: ./.github/workflows/tests.yml
+  call:
+    uses: ./.github/workflows/tests.yml
