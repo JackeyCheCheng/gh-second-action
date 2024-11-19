@@ -1,4 +1,4 @@
-name: manual test after merge stage02
+name: Manual Test After Merge Stage02
 
 on:
   push:
@@ -8,10 +8,14 @@ on:
         description: 'Branch to run tests on'
         required: true
         default: 'stage'
-        type: choice
+        type: 'choice'
         options:
           - stage
+          - main
+          - develop
 
 jobs:
   call_shared:
     uses: ./.github/workflows/tests.yml
+    with:
+      branch: ${{ github.event.inputs.branch || 'stage' }}
