@@ -1,4 +1,4 @@
-name: Manual and Push Workflow00004
+name: Manual and Push Workflo0005
 
 on:
   push:
@@ -15,16 +15,6 @@ on:
           - stage
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  call:
     if: github.event_name != 'workflow_dispatch' || github.event.inputs.branch == 'stage'
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: Run a one-line script
-        run: echo Hello, this workflow was triggered by a ${{ github.event_name }} event.
-
-      - name: Run multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    uses: ./.github/workflows/tests.yml
