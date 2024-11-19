@@ -1,17 +1,8 @@
-name: manual test after merge stage02
+name: hello
 
 on:
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to run tests on'
-        required: true
-        default: 'stage'
-        type: choice
-        options:
-          - stage
 
 jobs:
   call:
-    if: inputs.branch == 'stage'
     uses: ./.github/workflows/tests.yml
