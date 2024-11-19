@@ -1,6 +1,6 @@
-name: hello
+name: hi
 
-on: [push,workflow_dispatch]
+on: workflow_dispatch
 
 jobs:
   call:
