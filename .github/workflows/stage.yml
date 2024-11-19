@@ -15,4 +15,4 @@ on:
 jobs:
   call_shared:
     if: github.ref == 'refs/heads/stage'
-    uses: ./.github/workflows/shared_tests.yml
+    uses: ./.github/workflows/tests.yml
