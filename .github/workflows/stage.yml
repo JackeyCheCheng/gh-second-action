@@ -1,9 +1,6 @@
 name: Manual and Push Workflow
 
 on:
-  push:
-    branches:
-      - '*'  # 這會匹配所有分支
   workflow_dispatch:  # 這會添加手動觸發按鈕
 
 jobs:
